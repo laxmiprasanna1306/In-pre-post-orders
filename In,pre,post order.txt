@@ -1,0 +1,94 @@
+class Node:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.val = key
+ 
+ 
+def printInorder(root):
+ 
+    if root:
+
+        printInorder(root.left)
+
+        print(root.val),
+ 
+        printInorder(root.right)
+ 
+ 
+def printPostorder(root):
+ 
+    if root:
+ 
+        printPostorder(root.left)
+ 
+        printPostorder(root.right)
+ 
+        print(root.val),
+ 
+ 
+def printPreorder(root):
+ 
+    if root:
+
+        print(root.val),
+ 
+        printPreorder(root.left)
+ 
+        printPreorder(root.right)
+
+ 
+root = Node(32)
+root.left = Node(27)
+root.left.left = Node(12)
+root.left.right = Node(28)
+root.left.left.right=Node(17)
+root.right = Node(42)
+root.right.right=Node(88)
+root.right.right.right=Node(98)
+root.right.right.left=Node(62)
+
+print("Preorder is:")
+printPreorder(root)
+ 
+print("\nInorder is:")
+printInorder(root)
+ 
+print("\nPostorder is:")
+printPostorder(root)
+
+
+OUTPUT:
+
+Preorder is:
+32
+27
+12
+17
+28
+42
+88
+62
+98
+
+Inorder is:
+12
+17
+27
+28
+32
+42
+62
+88
+98
+
+Postorder is:
+17
+12
+28
+27
+62
+98
+88
+42
+32
